@@ -47,11 +47,17 @@ const bici = [
 ];
 
 let biciLeggera = bici[0];
-for (let i = 0; i < bici.length; i++) {
-  if (bici[i].pesoKg < biciLeggera.pesoKg){
-    biciLeggera = bici[i];
+// for (let i = 0; i < bici.length; i++) {
+//   if (bici[i].pesoKg < biciLeggera.pesoKg){
+//     biciLeggera = bici[i];
+//   }
+// }
+bici.forEach((item, i) => {
+  if (item.pesoKg < biciLeggera.pesoKg){
+    biciLeggera = item;
   }
-}
+});
+
 
 const stampa = document.getElementById('stamp');
 const {marca, pesoKg} = biciLeggera;
