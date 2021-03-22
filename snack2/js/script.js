@@ -48,7 +48,7 @@ Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengo
 */
 //--------------------- LE FUNZIONI-----------------------------
 // restituisce un numero random tra due estremi compresi
-function random(min, max){
+const random = (min, max) => {
   var numero = Math.floor(Math.random() * (max - min + 1)) + min;
   return numero;
 }
@@ -70,19 +70,24 @@ const teams = [
    falliSub: 0,
  },
 ];
-for (let i = 0; i < teams.length; i++) {
-  teams[i].ptFatti = random(1, 114);
-  teams[i].falliSub = random(1, 40);
-}
+// for (let i = 0; i < teams.length; i++) {
+//   teams[i].ptFatti = random(1, 114);
+//   teams[i].falliSub = random(1, 40);
+// }
 
-
-const statistiche = [];
-for (let i = 0; i < teams.length; i++) {
-  const {nome, falliSub} = teams[i];
-  statistiche.push({
-   nome,
-   falliSub,
- });
-}
+// const statistiche = [];
+// for (let i = 0; i < teams.length; i++) {
+//   const {nome, falliSub} = teams[i];
+//   statistiche.push({
+//    nome,
+//    falliSub,
+//  });
+// }
+const statistiche = teams.map((element) => {
+  element.ptFatti = random(1, 114);
+  element.falliSub = random(1, 40);
+  const {nome, falliSub} = element;
+  return {nome, falliSub};
+});
 
 console.log(statistiche);
