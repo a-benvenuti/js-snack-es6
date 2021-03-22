@@ -34,3 +34,25 @@ if (max < min){
 console.log(arrayInterval(arrayDefault, min, max));
 */
 // --------------------------------------------------------------------------------------------------------------------------------
+const arrayDefault = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+//CON CONTROLLO SUI DATI (con let)
+let min;
+let max;
+let appoggio;
+do {
+  min = parseInt(prompt("Inserisci l'estremo minore"));
+} while (isNaN(min) || min < 0);
+do {
+  max = parseInt(prompt("Inserisci l'estremo maggiore"));
+} while (isNaN(max) || max < 0);
+if (max < min){
+  appoggio = max;
+  max = min;
+  min = appoggio;
+}
+// -------------------FUNZIONI---------------------
+var arrayInterval = arrayDefault.filter((element, index) => {
+  return min <= index && max >= index;
+});
+// -------------fine delle FUNZIONI----------------
+console.log(arrayInterval);
